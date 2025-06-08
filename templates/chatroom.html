@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <title>聊天室</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>聊天室</h1>
+
+        <div class="chat-box">
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        </div>
+
+        <form method="POST" action="{{ url_for('chatroom') }}" class="chat-form">
+            <input type="text" name="message" placeholder="輸入訊息..." required>
+            <button type="submit">送出</button>
+        </form>
+
+        <form action="{{ url_for('logout') }}" method="GET">
+            <button type="submit" class="logout-btn">登出</button>
+        </form>
+    </div>
+</body>
+</html>

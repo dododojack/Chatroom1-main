@@ -1,0 +1,145 @@
+/* 通用設定 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 聊天室主要容器 */
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* 標題 */
+.chat-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* 聊天框 */
+.chat-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    height: 400px;
+    overflow-y: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fefefe;
+    text-align: left;
+}
+
+/* 聊天表單 */
+.chat-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* 通用按鈕樣式 */
+button {
+    padding: 10px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* 登出按鈕額外樣式 */
+.logout-btn {
+    background-color: #dc3545;
+    margin-top: 8px;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* 登入 / 註冊表單 */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* 註冊與登入按鈕 */
+.form-container button {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+/* 錯誤訊息 */
+.messages {
+    color: red;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+/* 超連結 */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}

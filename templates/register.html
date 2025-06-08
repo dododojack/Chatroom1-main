@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <title>註冊頁面</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>註冊新帳號</h2>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('register') }}">
+            <label>使用者名稱：</label><br>
+            <input type="text" name="username" required><br><br>
+
+            <label>電子郵件：</label><br>
+            <input type="email" name="email" required><br><br>
+
+            <label>密碼：</label><br>
+            <input type="password" name="password" required><br><br>
+
+            <button type="submit">註冊</button>
+        </form>
+
+        <br>
+        <a href="{{ url_for('login') }}">返回登入</a>
+    </div>
+</body>
+</html>
