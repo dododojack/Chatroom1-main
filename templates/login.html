@@ -1,34 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW"> <!-- 設定 HTML 文件的語言為繁體中文 -->
 <head>
-    <meta charset="UTF-8" />
-    <title>登入頁面</title>
+    <meta charset="UTF-8" /> <!-- 設定編碼為 UTF-8，支援中文字元 -->
+    <title>登入頁面</title> <!-- 瀏覽器分頁顯示的標題 -->
+
+    <!-- 載入靜態 CSS 檔案，使用 Flask 的 url_for 動態產生路徑 -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- 外層容器，用來包住整個登入表單，方便置中與樣式設定 -->
     <div class="form-container">
+        <!-- 登入頁面的標題 -->
         <h2>使用者登入</h2>
 
+        <!-- 顯示閃存訊息，例如登入失敗提示 -->
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             <ul class="messages">
               {% for message in messages %}
-                <li>{{ message }}</li>
+                <li>{{ message }}</li> <!-- 顯示每一則訊息 -->
               {% endfor %}
             </ul>
           {% endif %}
         {% endwith %}
 
+        <!-- 登入表單，送出後會用 POST 方法傳到 login 路由 -->
         <form method="POST" action="{{ url_for('login') }}">
+            <!-- 使用者名稱欄位 -->
             <label>使用者名稱：</label><br>
             <input type="text" name="username" required><br><br>
 
+            <!-- 密碼欄位 -->
             <label>密碼：</label><br>
             <input type="password" name="password" required><br><br>
 
+            <!-- 登入按鈕 -->
             <button type="submit">登入</button>
         </form>
 
+        <!-- 底部的註冊連結，使用 Flask 的 url_for 產生註冊路由 -->
         <br>
         <a href="{{ url_for('register') }}">註冊新帳號</a>
     </div>

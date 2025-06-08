@@ -1,26 +1,40 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW"> <!-- 設定語言為繁體中文 -->
 <head>
-    <meta charset="UTF-8" />
-    <title>聊天室</title>
+    <meta charset="UTF-8" /> <!-- 設定網頁的編碼為 UTF-8，支援中文 -->
+    <title>聊天室</title> <!-- 標題會顯示在瀏覽器分頁上 -->
+
+    <!-- 載入 Flask 靜態檔案資料夾中的 style.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- 聊天室的整體容器，方便置中和美化 -->
     <div class="chat-container">
+        <!-- 聊天室的主標題 -->
         <h1>聊天室</h1>
 
+        <!-- 聊天內容顯示區域（舊訊息） -->
         <div class="chat-box">
             {% for msg in messages %}
+                <!-- 每一則訊息用 <p> 顯示 -->
                 <p>{{ msg }}</p>
             {% endfor %}
         </div>
 
+        <!-- 傳送訊息的表單 -->
+        <!-- 表單會用 POST 方法，送到後端 chatroom 的路由 -->
         <form method="POST" action="{{ url_for('chatroom') }}" class="chat-form">
+            <!-- 訊息輸入欄位 -->
             <input type="text" name="message" placeholder="輸入訊息..." required>
+            
+            <!-- 送出按鈕 -->
             <button type="submit">送出</button>
         </form>
 
+        <!-- 登出的表單 -->
+        <!-- 使用 GET 方法連到 logout 路由，觸發登出邏輯 -->
         <form action="{{ url_for('logout') }}" method="GET">
+            <!-- 登出按鈕，使用 logout-btn 類別以方便 CSS 樣式調整 -->
             <button type="submit" class="logout-btn">登出</button>
         </form>
     </div>
